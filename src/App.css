@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .logo {
@@ -16,6 +16,42 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.container__form{
+  background: repeating-linear-gradient(158deg, #000000, transparent 4px);
+}
+
+.title {
+  padding: 21px;
+}
+
+label {
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+}
+
+input {
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 600;
+  text-align: center;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 @keyframes logo-spin {

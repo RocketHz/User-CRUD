@@ -1,10 +1,13 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import { useEffect } from 'react'
 import './App.css'
 import useFetch from './hooks/useFetch'
 import FormUser from './components/FormUser'
+import UserCard from './components/UserCard'
 
 function App() {
+
+  const [infoUpdate, setInfoUpdate] = useState()
 
   const baseUrl = 'https://users-crud.academlo.tech'
   const [ users, getUsers, createUser, deleteUser, updateUser ] = useFetch(baseUrl)
@@ -14,11 +17,26 @@ function App() {
   }, [])
   
   return (
-    <div>
-      <h1>Users CRUD</h1>
+    <div className='container__form'>
+      <h1 className='title'>Users CRUD</h1>
       <FormUser 
-        
+        createUser={createUser}
+        infoUpdate={infoUpdate}
+        updateUser={updateUser}
+        setInfoUpdate={setInfoUpdate}
       />
+      <div>
+        {
+          users?.map(user => { 
+            <UserCard
+              key={user.id}
+              user={user}
+              deleteUser={deleteUser}
+              setInfoUpdate={setInfoUpdate}
+            />
+           })
+        }
+      </div>
     </div>
   )
 }
