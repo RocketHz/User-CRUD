@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   /* text-align: center; */
 }
 .logo {
@@ -19,6 +19,10 @@
 
 .container__form{
   background: repeating-linear-gradient(158deg, #000000, transparent 4px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
 }
 
 .container__user {
@@ -29,7 +33,8 @@
 }
 
 .title {
-  padding: 21px;
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
 .card {
@@ -40,10 +45,11 @@
   position: relative;
   width: 300px;
   /* height: 384px; */
+  margin-top: 25px;
   display: flex;
   align-items: center;
   border-radius: 20px;
-  background: var(--bg-color);
+  background: #0000009c;
   flex-wrap: wrap;
   justify-content: center;
   align-content: stretch;
@@ -83,8 +89,8 @@
 .card__subtitle {
   margin-top: 10px;
   font-weight: 400;
-  font-size: 15px;
   color: var(--submain-color);
+  list-style: none;
 }
 
 .card__btn {
@@ -116,6 +122,28 @@
   color: var(--main-color);
 }
 
+.modal {
+  position: fixed;
+    top: 21px;
+    width: 21%;
+    background-color: #e3c0ff;
+    color: black;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+.modal-content {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 label {
   font-weight: 700;
   letter-spacing: 0.2rem;
@@ -128,20 +156,22 @@ input {
   text-align: center;
 }
 
-div {
+/* div {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 10px;
-}
+} */
 
 form {
   display: flex;
   padding: 15px;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
+  border: 5px solid #4c04d94f;
+  border-radius: 19px;
 }
 
 @keyframes logo-spin {

@@ -20,8 +20,8 @@ function App() {
   
   return (
     <>
-      <h1 className='title'>Users CRUD</h1>
       <div className='container__form'>
+      <h1 className='title'>Users CRUD</h1>
         <FormUser 
           createUser={createUser}
           infoUpdate={infoUpdate}
