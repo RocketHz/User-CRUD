@@ -15,29 +15,32 @@ function App() {
   useEffect(() => {
     getUsers('/users')
   }, [])
+
+  console.log(users)
   
   return (
-    <div className='container__form'>
+    <>
       <h1 className='title'>Users CRUD</h1>
-      <FormUser 
-        createUser={createUser}
-        infoUpdate={infoUpdate}
-        updateUser={updateUser}
-        setInfoUpdate={setInfoUpdate}
-      />
-      <div>
+      <div className='container__form'>
+        <FormUser 
+          createUser={createUser}
+          infoUpdate={infoUpdate}
+          updateUser={updateUser}
+          setInfoUpdate={setInfoUpdate}
+        />
+      </div>
+      <div className='container__user'>
         {
-          users?.map(user => { 
-            <UserCard
+          users?.map((user) =>  (
+          <UserCard
               key={user.id}
               user={user}
               deleteUser={deleteUser}
               setInfoUpdate={setInfoUpdate}
-            />
-           })
-        }
+            />)
+          )}
       </div>
-    </div>
+    </>
   )
 }
 

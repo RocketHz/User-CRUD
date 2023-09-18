@@ -9,14 +9,16 @@ const UserCard = ({ user, deleteUser, setInfoUpdate }) => {
      }
 
     return (
-    <article>
-      <h3>#{`${user.id} ${user.first_name} ${user.last_name}`}</h3>
+    <article className="card">
+      <h3 className="card__title">#{`${user.id} ${user.first_name} ${user.last_name}`}</h3>
       <ul>
-        <li><span>Email: </span><span>{user.email}</span></li>
-        <li><span>Birthday: </span><span>{user.birthday}</span></li>
+        <li className="card__subtitle"><span>Email: </span><span>{user.email}</span></li>
+        <li className="card__subtitle"><span>Birthday: </span><span>{user.birthday}</span></li>
       </ul>
-      <button onClick={handleDelete}>Delete</button>
-      <button onClick={handleEdit}>Edit</button>
+      <div className="card__wrapper">
+        <button className="card__btn" onClick={handleDelete}>Delete</button>
+        <button className="card__btn" onClick={handleEdit}>Edit</button>
+      </div>
     </article>
   )
 }

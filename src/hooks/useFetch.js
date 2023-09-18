@@ -2,21 +2,22 @@ import axios from "axios"
 import { useState } from "react"
 
 const useFetch = (baseUrl) => {
-    const [infoApi, setInfoApi] = useState()
+
+    const [infoApi, setInfoApi] = useState([])
 
     const getApi = (path) => {
         const url = `${baseUrl}${path}/`
         axios.get(url)
-            .then(({ data }) => setInfoApi(data))
+            .then(res => setInfoApi(res.data))
             .catch(err => console.log(err))
     }
 
     const postApi = (path, data) => {
         const url = `${baseUrl}${path}/`
         axios.post(url, data)
-            .then(({ data }) => {
-                console.log(data)
-                setInfoApi([...infoApi, data])
+            .then(res => {
+                console.log(res.data)
+                setInfoApi([...infoApi, res.data])
             })
             .catch(err => console.log(err))
     }
@@ -24,19 +25,19 @@ const useFetch = (baseUrl) => {
     const deleteApi = (path, id) => {
         const url = `${baseUrl}${path}/${id}/`
         axios.delete(url)
-            .then(({ data }) => {
-                console.log(data)
+            .then(res => {
+                console.log(res.data)
                 setInfoApi(infoApi.filter(e => id !== e.id))
             })
             .catch(err => console.log(err))
     }
 
-    const updateApi = (path, id) => {
+    const updateApi = (path, id, data) => {
         const url = `${baseUrl}${path}/${id}/`
-        axios.patch(url, data)
-            .then(({ data }) => {
-                console.log(data)
-                setInfoApi(infoApi.map(e => id === e.id ? data : e))
+        axios.put(url, data)
+            .then(res => {
+                console.log(res.data)
+                setInfoApi(infoApi.map(e => id === e.id ? res.data : e))
             })
             .catch(err => console.log(err))
     }
